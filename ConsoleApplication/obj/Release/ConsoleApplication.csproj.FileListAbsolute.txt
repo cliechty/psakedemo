@@ -1,0 +1,5 @@
+C:\git\psake\.build\temp\ConsoleApplication.exe.config
+C:\git\psake\.build\temp\ConsoleApplication.exe
+C:\git\psake\.build\temp\ConsoleApplication.pdb
+C:\git\psake\ConsoleApplication\obj\Release\ConsoleApplication.exe
+C:\git\psake\ConsoleApplication\obj\Release\ConsoleApplication.pdb

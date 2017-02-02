@@ -1,0 +1,5 @@
+C:\git\psake\.build\temp\Build.dll
+C:\git\psake\.build\temp\Build.pdb
+C:\git\psake\Build\obj\Release\Build.csprojResolveAssemblyReference.cache
+C:\git\psake\Build\obj\Release\Build.dll
+C:\git\psake\Build\obj\Release\Build.pdb
