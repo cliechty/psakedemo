@@ -1,4 +1,0 @@
-C:\git\psake\ClassLibrary\bin\Debug\ClassLibrary.dll
-C:\git\psake\ClassLibrary\bin\Debug\ClassLibrary.pdb
-C:\git\psake\ClassLibrary\obj\Debug\ClassLibrary.dll
-C:\git\psake\ClassLibrary\obj\Debug\ClassLibrary.pdb

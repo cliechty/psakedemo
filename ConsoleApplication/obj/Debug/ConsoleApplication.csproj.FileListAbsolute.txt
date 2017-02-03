@@ -1,5 +1,0 @@
-C:\git\psake\ConsoleApplication\bin\Debug\ConsoleApplication.exe.config
-C:\git\psake\ConsoleApplication\bin\Debug\ConsoleApplication.exe
-C:\git\psake\ConsoleApplication\bin\Debug\ConsoleApplication.pdb
-C:\git\psake\ConsoleApplication\obj\Debug\ConsoleApplication.exe
-C:\git\psake\ConsoleApplication\obj\Debug\ConsoleApplication.pdb

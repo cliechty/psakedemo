@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "Conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{800C1002-01D7-4C1F-8F0F-C08AE9C0EBE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication.NUnitTests", "WebApplication.NUnitTests\WebApplication.NUnitTests.csproj", "{98D3A121-2C73-48E9-8573-09D1A2ABAB3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication.xUnitTests", "WebApplication.xUnitTests\WebApplication.xUnitTests.csproj", "{6E1951A5-8F97-480D-B388-0D417BD1B48F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{800C1002-01D7-4C1F-8F0F-C08AE9C0EBE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{800C1002-01D7-4C1F-8F0F-C08AE9C0EBE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{800C1002-01D7-4C1F-8F0F-C08AE9C0EBE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D3A121-2C73-48E9-8573-09D1A2ABAB3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D3A121-2C73-48E9-8573-09D1A2ABAB3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D3A121-2C73-48E9-8573-09D1A2ABAB3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D3A121-2C73-48E9-8573-09D1A2ABAB3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E1951A5-8F97-480D-B388-0D417BD1B48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E1951A5-8F97-480D-B388-0D417BD1B48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E1951A5-8F97-480D-B388-0D417BD1B48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E1951A5-8F97-480D-B388-0D417BD1B48F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

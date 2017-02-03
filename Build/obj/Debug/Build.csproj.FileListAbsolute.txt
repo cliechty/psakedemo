@@ -1,5 +1,0 @@
-C:\git\psake\Build\bin\Debug\Build.dll
-C:\git\psake\Build\bin\Debug\Build.pdb
-C:\git\psake\Build\obj\Debug\Build.csprojResolveAssemblyReference.cache
-C:\git\psake\Build\obj\Debug\Build.dll
-C:\git\psake\Build\obj\Debug\Build.pdb
