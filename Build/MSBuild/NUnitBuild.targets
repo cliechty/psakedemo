@@ -13,16 +13,16 @@
     <!-- Log tasks -->
     <Message Text="Copying Web Application Project Files for $(MSBuildProjectName)" />
 
-    <!-- Create the _PublishedWebsites\app\bin folder -->
-    <MakeDir Directories="$(NUnitProjectOutputDirectory)\bin" />
+    <!-- Create the _PublishedWebsites\app folder -->
+    <MakeDir Directories="$(NUnitProjectOutputDirectory)" />
 
-    <!-- Copy build outputs to _PublishedWebsites\app\bin folder -->
-    <Copy SourceFiles="@(IntermediateAssembly)" DestinationFolder="$(NUnitProjectOutputDirectory)\bin"
+    <!-- Copy build outputs to _PublishedWebsites\app folder -->
+    <Copy SourceFiles="@(IntermediateAssembly)" DestinationFolder="$(NUnitProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(AddModules)"
-          DestinationFolder="$(NUnitProjectOutputDirectory)\bin"
+          DestinationFolder="$(NUnitProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
@@ -33,31 +33,31 @@
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="$(IntermediateOutputPath)$(TargetName).pdb"
-          DestinationFolder="$(NUnitProjectOutputDirectory)\bin"
+          DestinationFolder="$(NUnitProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Condition="'$(_DebugSymbolsProduced)'=='true'"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(DocFileItem)"
-          DestinationFolder="$(NUnitProjectOutputDirectory)\bin"
+          DestinationFolder="$(NUnitProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Condition="'$(_DocumentationFileProduced)'=='true'"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(IntermediateSatelliteAssembliesWithTargetPath)"
-          DestinationFiles="@(IntermediateSatelliteAssembliesWithTargetPath->'$(NUnitProjectOutputDirectory)\bin\%(Culture)\$(TargetName).resources.dll')"
+          DestinationFiles="@(IntermediateSatelliteAssembliesWithTargetPath->'$(NUnitProjectOutputDirectory)\%(Culture)\$(TargetName).resources.dll')"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(ReferenceComWrappersToCopyLocal); @(ResolvedIsolatedComModules); @(_DeploymentLooseManifestFile); @(NativeReferenceFile)"
-          DestinationFolder="$(NUnitProjectOutputDirectory)\bin"
+          DestinationFolder="$(NUnitProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
 
-    <!-- copy any referenced assemblies to _PublishedWebsites\app\bin folder -->
+    <!-- copy any referenced assemblies to _PublishedWebsites\app folder -->
     <Copy SourceFiles="@(ReferenceCopyLocalPaths)"
-          DestinationFiles="@(ReferenceCopyLocalPaths->'$(NUnitProjectOutputDirectory)\bin\%(DestinationSubDirectory)%(Filename)%(Extension)')"
+          DestinationFiles="@(ReferenceCopyLocalPaths->'$(NUnitProjectOutputDirectory)\%(DestinationSubDirectory)%(Filename)%(Extension)')"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
@@ -76,12 +76,12 @@
 
     <!-- Copy items that have been marked to be copied to the bin folder -->
     <Copy SourceFiles="@(_SourceItemsToCopyToOutputDirectory)"
-          DestinationFolder="$(NUnitProjectOutputDirectory)\bin"
+          DestinationFolder="$(NUnitProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(_SourceItemsToCopyToOutputDirectoryAlways)"
-          DestinationFolder="$(NUnitProjectOutputDirectory)\bin"
+          DestinationFolder="$(NUnitProjectOutputDirectory)"
           SkipUnchangedFiles="false"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
@@ -95,7 +95,7 @@
 
     <!-- Copy items that need to be bin deployed to the bin folder -->
     <Copy SourceFiles="@(_binDeployableAssemblies)"
-          DestinationFolder="$(NUnitProjectOutputDirectory)\bin\%(_binDeployableAssemblies.DestinationRelPath)"
+          DestinationFolder="$(NUnitProjectOutputDirectory)\%(_binDeployableAssemblies.DestinationRelPath)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>

@@ -47,7 +47,7 @@ function Prepare-Tests
 	}
 
 	# Get the list of test DLLs
-	$testAssemblies = $projects | ForEach-Object { "`"`"" + $_.FullName + "\bin\" + $_.Name + ".dll`"`""  }
+	$testAssemblies = $projects | ForEach-Object { "`"`"" + $_.FullName + "\" + $_.Name + ".dll`"`""  }
 	$testAssembliesParameter = [string]::Join(" ", $testAssemblies)
 
 	return $testAssemblies

@@ -1,101 +1,101 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <MSTestBuildProjectOutputDirectory>$(OutDir)_PublishedMSTestTests\$(MSBuildProjectName)</MSTestBuildProjectOutputDirectory>
+    <ApplicationsProjectOutputDirectory>$(OutDir)_PublishedApplications\$(MSBuildProjectName)</ApplicationsProjectOutputDirectory>
   </PropertyGroup>
   <PropertyGroup>
     <PrepareForRunDependsOn>
       $(PrepareForRunDependsOn);
-      _CopyMSTestTests
+      _CopyApplications
     </PrepareForRunDependsOn>
   </PropertyGroup>
 
-  <Target Name="_CopyMSTestTests" Condition="'$(OutDir)' != '$(OutputPath)'" >
+  <Target Name="_CopyApplications" Condition="'$(OutDir)' != '$(OutputPath)'" >
     <!-- Log tasks -->
     <Message Text="Copying Web Application Project Files for $(MSBuildProjectName)" />
 
     <!-- Create the _PublishedWebsites\app folder -->
-    <MakeDir Directories="$(MSTestBuildProjectOutputDirectory)" />
+    <MakeDir Directories="$(ApplicationsProjectOutputDirectory)" />
 
     <!-- Copy build outputs to _PublishedWebsites\app folder -->
-    <Copy SourceFiles="@(IntermediateAssembly)" DestinationFolder="$(MSTestBuildProjectOutputDirectory)"
+    <Copy SourceFiles="@(IntermediateAssembly)" DestinationFolder="$(ApplicationsProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(AddModules)"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="$(IntermediateOutputPath)$(_SGenDllName)"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)\%(Content.SubFolder)%(Content.RecursiveDir)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)\%(Content.SubFolder)%(Content.RecursiveDir)"
           SkipUnchangedFiles="true"
           Condition="'$(_SGenDllCreated)'=='true'"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="$(IntermediateOutputPath)$(TargetName).pdb"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Condition="'$(_DebugSymbolsProduced)'=='true'"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(DocFileItem)"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Condition="'$(_DocumentationFileProduced)'=='true'"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(IntermediateSatelliteAssembliesWithTargetPath)"
-          DestinationFiles="@(IntermediateSatelliteAssembliesWithTargetPath->'$(MSTestBuildProjectOutputDirectory)\%(Culture)\$(TargetName).resources.dll')"
+          DestinationFiles="@(IntermediateSatelliteAssembliesWithTargetPath->'$(ApplicationsProjectOutputDirectory)\%(Culture)\$(TargetName).resources.dll')"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(ReferenceComWrappersToCopyLocal); @(ResolvedIsolatedComModules); @(_DeploymentLooseManifestFile); @(NativeReferenceFile)"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
 
     <!-- copy any referenced assemblies to _PublishedWebsites\app folder -->
     <Copy SourceFiles="@(ReferenceCopyLocalPaths)"
-          DestinationFiles="@(ReferenceCopyLocalPaths->'$(MSTestBuildProjectOutputDirectory)\%(DestinationSubDirectory)%(Filename)%(Extension)')"
+          DestinationFiles="@(ReferenceCopyLocalPaths->'$(ApplicationsProjectOutputDirectory)\%(DestinationSubDirectory)%(Filename)%(Extension)')"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
 
     <!-- Copy content files recursively to _PublishedWebsites\app\ folder -->
     <Copy SourceFiles="@(Content)" Condition="'%(Content.Link)' == ''"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)\%(Content.RelativeDir)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)\%(Content.RelativeDir)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
     <Copy SourceFiles="@(Content)" Condition="'%(Content.Link)' != ''"
-          DestinationFiles="$(MSTestBuildProjectOutputDirectory)\%(Content.Link)"
+          DestinationFiles="$(ApplicationsProjectOutputDirectory)\%(Content.Link)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
 
     <!-- Copy items that have been marked to be copied to the bin folder -->
     <Copy SourceFiles="@(_SourceItemsToCopyToOutputDirectory)"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
     <Copy SourceFiles="@(_SourceItemsToCopyToOutputDirectoryAlways)"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)"
           SkipUnchangedFiles="false"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
 
     <!-- Copy Silverlight Zip and Xzp file to _PublishedWebsites\app\ folder-->
     <Copy SourceFiles="@(_WebApplicationSilverlightXapFiles)"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)\%(_WebApplicationSilverlightXapFiles.RelativeDir)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)\%(_WebApplicationSilverlightXapFiles.RelativeDir)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
 
     <!-- Copy items that need to be bin deployed to the bin folder -->
     <Copy SourceFiles="@(_binDeployableAssemblies)"
-          DestinationFolder="$(MSTestBuildProjectOutputDirectory)\%(_binDeployableAssemblies.DestinationRelPath)"
+          DestinationFolder="$(ApplicationsProjectOutputDirectory)\%(_binDeployableAssemblies.DestinationRelPath)"
           SkipUnchangedFiles="true"
           Retries="$(CopyRetryCount)"
           RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"/>
