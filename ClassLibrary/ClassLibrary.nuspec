@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Class Library</title>
+    <authors>$author$</authors>
+    <owners>Chris Liechty</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Class Library used for psake build demo</description>
+    <releaseNotes>[release notes]</releaseNotes>
+    <copyright>Chris Liechty 2017</copyright>
+    <tags></tags>
+  </metadata>
+</package>

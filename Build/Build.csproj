@@ -50,6 +50,7 @@
     <None Include="helpers.ps1" />
     <None Include="MSBuild\MSTestBuild.targets" />
     <None Include="MSBuild\ApplicationBuild.targets" />
+    <None Include="MSBuild\NuGetBuild.targets" />
     <None Include="MSBuild\xUnitBuild.targets" />
     <None Include="MSBuild\NUnitBuild.targets" />
     <None Include="packages.config" />
